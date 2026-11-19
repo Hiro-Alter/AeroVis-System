@@ -3,13 +3,13 @@
     "language": "es",
     "theme_accent": "#d97706",
     "theme_mode": "light",
-    "window_title": "Sistema de visión artificial para el direccionamiento de un dron virtual"
+    "window_title": "AeroVis System"
   },
   "camera": {
     "default_index": 0,
     "probe_count": 5,
     "mirror": true,
-    "frame_interval_ms": 30
+    "frame_interval_ms": 10
   },
   "vision": {
     "hand_padding": 0.3,

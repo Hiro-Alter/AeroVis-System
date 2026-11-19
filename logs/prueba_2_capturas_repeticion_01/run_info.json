@@ -1,0 +1,169 @@
+{
+  "status": "complete",
+  "samples": 280,
+  "model_order": [
+    "resnet18",
+    "mobilenetv3_small"
+  ],
+  "annotations_sha256": "18b08b298f3779579ec04d1d0047d447f7f63e4ae935fd95d32e4ac66482ac1d",
+  "config_sha256": "5f558a0a913aa2b295d653ee10f846c68390c1d50a0be6536ff925d3c871b105",
+  "config": {
+    "camera": {
+      "default_index": 0,
+      "probe_count": 5,
+      "mirror": true,
+      "frame_interval_ms": 10
+    },
+    "vision": {
+      "hand_padding": 0.3,
+      "min_detection_confidence": 0.5,
+      "min_tracking_confidence": 0.5,
+      "max_num_hands": 1,
+      "min_roi_size_px": 5
+    },
+    "models": {
+      "manifest": "models/manifest.json",
+      "default": "resnet18"
+    },
+    "inference": {
+      "preferred_device": "directml",
+      "fallback_device": "cpu",
+      "min_confidence": 0.95
+    }
+  },
+  "source_sha256": {
+    "src/inference/__init__.py": "e58446d70db314ba2612a25be7bb33b2194ebef819e312d6dea27cd7fc4510eb",
+    "src/inference/device.py": "776c6febf4c8e65a345e3abfcfecc53d44ecb02cd6ccfa92dfb7f89397a53298",
+    "src/inference/model_loader.py": "f499482530bb3153be8a79638b9dc811e892a88d899552afe773b4a1157892c2",
+    "src/inference/predictor.py": "ff8fecbff319b4c0bb90b49ab5734ee7367e5dfca41d734c744d53e27068a679",
+    "src/vision/__init__.py": "a756a0ac36302d8ed90d5f5d8143d7332b4df18145dee32a9647a1770e28fe1f",
+    "src/vision/camera.py": "9e7d1d1e7ba401038e9d643c8cf321e3eb894abdae5adbb23ddf2c9d7de8793e",
+    "src/vision/hand_landmarks.py": "c287c45ff716bede67928723aca752ef3a3d8b76fcd654976924e25ee61ae2ca",
+    "src/vision/image_enhancement.py": "aaa68170423cd4ff1d2c3a4a8f652baedf310da7f9fd81793b5474a89c0b734b",
+    "src/vision/pipeline.py": "9a7a3c240a774d6dac681b29cf13b4f569b57fcba1474fdaa2e483196a86063a",
+    "src/vision/preprocessing.py": "e2a95f29ea924d0c009e412747e3cf73a113af5b0b48d0d6cc61f5e5860f80f4",
+    "src/vision/roi_extractor.py": "e79485c179f8c7f09d29a31eed4c1c33191ac98a4f125dfddb291a6fa2ecf795",
+    "tests_future/evaluate_captures.py": "5bef482da6ab0bb5dd59de05e359811ce7bb362b94ea59ee69e16af020df07f8"
+  },
+  "versions": {
+    "torch": "2.4.1",
+    "torch-directml": "0.2.5.dev240914",
+    "mediapipe": "0.10.14",
+    "opencv-python": "4.12.0.88",
+    "numpy": "2.2.6"
+  },
+  "python": "3.10.9",
+  "system": "Windows-10-10.0.26300-SP0",
+  "cpu": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+  "torch_threads": 6,
+  "opencv_threads": 12,
+  "pilot": [
+    {
+      "file": "0d42fb07-e340-453b-b01d-251ece3906b9 Original.jpg",
+      "sha256": "d1bd3c401ed64a71885002fc259fc986b32be9796b6a640e4d26868120b9a618",
+      "detected": true,
+      "roi_valid": true
+    },
+    {
+      "file": "0d42fb07-e340-453b-b01d-251ece3906b9 ROI.jpg",
+      "sha256": "48b6d185eeb1fcaff178d2b322f18b5edabeb12e7658f00bf9c94e0b9f71e673",
+      "detected": true,
+      "roi_valid": true
+    },
+    {
+      "file": "116f631a-5c08-47b0-b242-62c17a408665.jpg",
+      "sha256": "f8229f984385805b16e9ce3de26f9823f13f416beac7aa72764cec6f6c09f59b",
+      "detected": false,
+      "roi_valid": false
+    },
+    {
+      "file": "4a2fa40f-7625-48b5-9b37-bd71106ee38d.jpg",
+      "sha256": "4a2e8fa2cf8963c2b7d47ef30cbeaf9d182a214fc36953bb0ac1f77f1756a1f4",
+      "detected": false,
+      "roi_valid": false
+    },
+    {
+      "file": "5fa260f8-a3be-4f8b-9851-376de8b74c43.jpg",
+      "sha256": "222de23f91a30d3ab339b718090b71ed7a9acdd103ec118e802546d5c12b118f",
+      "detected": false,
+      "roi_valid": false
+    },
+    {
+      "file": "64810a08-a337-4a51-a4fe-763a6a32e877.jpg",
+      "sha256": "f79285557c861e9e28cb0be8c20d42666e9d0fe3de08f5952c2998e4ad9f4e13",
+      "detected": true,
+      "roi_valid": true
+    }
+  ],
+  "warmup_per_model": 10,
+  "models": {
+    "resnet18": {
+      "device": "directml",
+      "device_message": "DirectML activo",
+      "torch_device": "privateuseone:0",
+      "weights_sha256": "243de68eee13c4787390cb218fab77a1b7d621f588e874b152303f6aa68c1fbb",
+      "metadata_sha256": "bb5007d66261081cc607ba716bb048d78614bf34fc5d4a84ba3d77f4587f9a89",
+      "labels_sha256": "2a8e3a57d624c76988009c95dea758f7b2c47e5f8c3ecd3ccac9ce3a23bcc658",
+      "adapter": "AMD Radeon RX 9060 XT\u0000"
+    },
+    "mobilenetv3_small": {
+      "device": "directml",
+      "device_message": "DirectML activo",
+      "torch_device": "privateuseone:0",
+      "weights_sha256": "cf1355551401d45d8fa1d91880da388e55873ce266d0f20b8eacff63a8330bdc",
+      "metadata_sha256": "5ae2abd6bfd2e59b4164fd5e2c980a545de1e12214f9eb63d4681760e4496c14",
+      "labels_sha256": "2a8e3a57d624c76988009c95dea758f7b2c47e5f8c3ecd3ccac9ce3a23bcc658",
+      "adapter": "AMD Radeon RX 9060 XT\u0000"
+    }
+  },
+  "protocol": {
+    "independent_photos": true,
+    "detector": "new VisionPipeline per image, outside timer",
+    "mirror": true,
+    "batch_size": 1,
+    "classifier_time": "GesturePredictor timer: forward, softmax, argmax and CPU scalar reads; excludes preprocessing",
+    "processing_time": "memory image, mirror, VisionPipeline including overlay, preprocess and prediction",
+    "excluded_time": "disk I/O, model load, detector creation/close, pilot, warmup, review and result writing",
+    "std": "sample standard deviation (n-1); null for n < 2",
+    "f1_macro": "fixed ten labels, zero_division=0; null for no valid ROI",
+    "confidence_filter": false,
+    "visual_review": "carried_forward_from_identical_review"
+  },
+  "visual_review_details": {
+    "method": "Revision anterior reutilizada tras verificar igualdad exacta de las 24 hojas y de todos los campos no temporales de las 560 filas.",
+    "new_manual_visual_inspection": false,
+    "previously_reviewed_images": 280,
+    "identical_review_pages": 24,
+    "detected_hand_confirmed": 275,
+    "hand_present_without_detection": 5,
+    "label_corrections": 0,
+    "excluded_images": 0,
+    "geometric_roi_quality_measured": false,
+    "source_run_id": "prueba_2_capturas",
+    "source_run_retained": false,
+    "review_record": "visual_review.csv",
+    "review_images": "review/"
+  },
+  "repeat_comparison": {
+    "reason": "El usuario informo que cerro programas adicionales y solicito repetir la prueba.",
+    "same_code_configuration_models_versions_and_inputs": true,
+    "identical_non_timing_prediction_rows": 560,
+    "identical_detection_and_classification_metrics": true,
+    "background_process_load_measured": false,
+    "previous_run_id": "prueba_2_capturas",
+    "previous_run_retained": false
+  },
+  "retention": {
+    "decision_date": "2026-11-05",
+    "reason": "Solicitud expresa del autor de conservar unicamente esta corrida de la prueba 2.",
+    "retained_run": "prueba_2_capturas_repeticion_01",
+    "raw_results_sha256": {
+      "predictions.csv": "d31afb97fbdad90bc0ad8a8abc1a9fa4f97f0eca179bac7ea9409454bec3a777",
+      "detection.csv": "50b44af0d3a933ad4a6a22b47b7972d720d14239c5e2ef8469c8616fd8701c8b",
+      "classification.csv": "0dfe1386467e1f4da28f57d36803bff298224441bef4a5bc12ec73798c595324",
+      "timing.csv": "5aadb319d56d599654edd448963f97218ee7caf3e29b3d8de3cfe63a80c67371",
+      "summary.json": "d0b56039056390e382b9904986132670956338858af4dfce1f52c065baab05b7",
+      "visual_review.csv": "734828ee9fcb4b2efdadc17889a2cf0cad033d9a1fe6bdcd3068bdd7ed4062dc"
+    }
+  }
+}

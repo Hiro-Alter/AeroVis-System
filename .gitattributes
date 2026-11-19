@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Preserve the original bytes checked by run_info.json.
+/logs/prueba_2_capturas_repeticion_01/*.csv -text
+/logs/prueba_2_capturas_repeticion_01/*.json -text

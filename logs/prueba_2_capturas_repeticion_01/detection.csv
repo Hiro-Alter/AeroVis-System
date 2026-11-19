@@ -1,0 +1,8 @@
+﻿group,n,detected,missed,roi_valid,sensitivity
+base_all,240,240,0,240,1.0
+base_simple_lit,60,60,0,60,1.0
+base_busy_lit,60,60,0,60,1.0
+base_simple_dim,60,60,0,60,1.0
+base_busy_dim,60,60,0,60,1.0
+paired_base_all,40,40,0,40,1.0
+partial_all,40,35,5,35,0.875

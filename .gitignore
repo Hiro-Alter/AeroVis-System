@@ -24,14 +24,21 @@ dist/
 .idea/
 
 # Logs and local env files
-logs/
 *.log
+/logs/*
+!/logs/prueba_2_capturas_repeticion_01/
+/logs/prueba_2_capturas_repeticion_01/*
+!/logs/prueba_2_capturas_repeticion_01/*.csv
+!/logs/prueba_2_capturas_repeticion_01/*.json
 .env
 
 # Codex-only context notes
 AGENTS.md
 DOCUMENTO_TECNICO_SOFTWARE.md
 docs/*.md
+docs/figures
+docs/*.zip
+tests_future/*.md
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/

@@ -121,6 +121,8 @@ python -m src.diagnostics
 
 Las pruebas funcionales con AirSim requieren tener Unity ejecutando el proyecto `DroneDemo`.
 
+Los registros CSV y el resumen de la Prueba 2 están en [la ejecución conservada](logs/prueba_2_capturas_repeticion_01/). El protocolo y el comando de ejecución se describen en [la guía de evaluación](tests_future/README.md).
+
 ## Gestos Y Comandos
 
 El mapeo vigente está en `config/gesture_commands.json`:

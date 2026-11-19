@@ -94,10 +94,14 @@ class GestureClassifier:
         try:
             module = _load_torchscript(definition.torchscript_path, selected.torch_device)
             return cls(definition=definition, module=module, device=selected)
-        except Exception:
+        except Exception as exc:
             if selected.name == "cpu":
                 raise
-            fallback = select_device("cpu", "cpu")
+            fallback = SelectedDevice(
+                name="cpu",
+                torch_device=torch.device("cpu"),
+                message=f"Error al cargar en {selected.name}, usando CPU: {type(exc).__name__}: {exc}",
+            )
             module = _load_torchscript(definition.torchscript_path, fallback.torch_device)
             return cls(definition=definition, module=module, device=fallback)
 
@@ -114,6 +118,13 @@ class GestureClassifier:
 def _load_torchscript(path: Path, device: Any) -> torch.jit.ScriptModule:
     module = torch.jit.load(str(path), map_location="cpu")
     module.eval()
+    if device.type == "privateuseone":
+        # TorchScript puede devolver Tensor; DirectML requiere Parameter al moverlo.
+        # Se restaura el tipo en memoria sin cambiar los valores ni el archivo.
+        for child in module.modules():
+            for name, parameter in child.named_parameters(recurse=False):
+                if not isinstance(parameter, torch.nn.Parameter):
+                    setattr(child, name, torch.nn.Parameter(parameter, requires_grad=parameter.requires_grad))
     module.to(device)
     return module
 
@@ -137,4 +148,3 @@ def _load_labels(labels_path: Path, metadata: dict[str, Any]) -> list[str]:
     if isinstance(class_names, list):
         return [str(item) for item in class_names]
     raise FileNotFoundError(f"No se encontraron labels para {metadata.get('name')}: {labels_path}")
-

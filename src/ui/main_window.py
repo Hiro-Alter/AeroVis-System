@@ -45,7 +45,7 @@ DEFAULT_CONFIG_VALUES = {
     "lateral_speed_mps": 3.0,
     "vertical_speed_mps": 2.2,
     "yaw_rate_deg_s": 45.0,
-    "frame_interval_ms": 30,
+    "frame_interval_ms": 10,
     "hand_padding": 0.30,
     "mirror": True,
     "use_body_frame": True,
@@ -64,7 +64,7 @@ class MainWindow(QMainWindow):
         self.paused = False
         self.dark_mode = str(config.get("app", {}).get("theme_mode", "light")).lower() == "dark"
 
-        self.setWindowTitle(config.get("app", {}).get("window_title", "Control gestual"))
+        self.setWindowTitle(config.get("app", {}).get("window_title", "AeroVis System"))
         self.resize(1280, 780)
         self._build_ui()
         self._apply_style()
@@ -89,11 +89,12 @@ class MainWindow(QMainWindow):
 
         title_box = QVBoxLayout()
         title_box.setSpacing(2)
-        self.title_label = QLabel("Sistema de visión artificial para el direccionamiento de un dron virtual")
+        self.title_label = QLabel(self.windowTitle())
         self.title_label.setObjectName("appTitle")
         self.title_label.setWordWrap(True)
-        self.subtitle_label = QLabel("Control mediante gestos de la mano")
+        self.subtitle_label = QLabel("Sistema de visión artificial para el direccionamiento de un dron virtual")
         self.subtitle_label.setObjectName("appSubtitle")
+        self.subtitle_label.setWordWrap(True)
         title_box.addWidget(self.title_label)
         title_box.addWidget(self.subtitle_label)
 
